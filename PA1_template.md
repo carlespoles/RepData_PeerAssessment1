@@ -1,5 +1,4 @@
 # Reproducible Research: Peer Assessment 1
-==========================================
 
 ### Making sure that code is visible.
 
