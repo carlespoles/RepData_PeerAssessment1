@@ -114,14 +114,6 @@ hist(stepsDate, xlab = "Total Steps", ylab = "Frequency", main = "Histogram - To
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)
 
 ```r
-dataSteps <- unique(dataFileAvoidNA$date)
-totalSteps <- tapply(dataFileAvoidNA$steps,dataFileAvoidNA$date, FUN = sum)
-stepsDate <- c()
-for (i in 1:length(totalSteps)) {
-    
-    stepsDate[i] = totalSteps[[i]]
-  
-}
 plot(dataSteps, stepsDate, pch = 19, xlab = "Date", ylab = "Total Steps", main = "Total Number of Steps Taken each Day", type = "h", lwd=7, col = "blue")
 ```
 
@@ -249,14 +241,6 @@ hist(stepsFilledDate, xlab = "Total Steps", ylab = "Frequency", main = "Histogra
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)
 
 ```r
-dataFilledSteps <- unique(dataFileFilled$date)
-totalFilledSteps <- tapply(dataFileFilled$steps,dataFileFilled$date, FUN = sum)
-stepsFilledDate <- c()
-for (i in 1:length(totalFilledSteps)) {
-    
-    stepsFilledDate[i] = totalFilledSteps[[i]]
-    
-}
 plot(dataFilledSteps, stepsFilledDate, pch = 19, xlab = "Date", ylab = "Total Steps", main = "Total Number of Steps Taken each Day - Missing Data Filled", type = "h", lwd=7, col = "blue")
 ```
 

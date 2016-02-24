@@ -44,14 +44,6 @@ for (i in 1:length(totalSteps)) {
 }
 hist(stepsDate, xlab = "Total Steps", ylab = "Frequency", main = "Histogram - Total Number of Steps", col = "orange")
 
-dataSteps <- unique(dataFileAvoidNA$date)
-totalSteps <- tapply(dataFileAvoidNA$steps,dataFileAvoidNA$date, FUN = sum)
-stepsDate <- c()
-for (i in 1:length(totalSteps)) {
-    
-    stepsDate[i] = totalSteps[[i]]
-  
-}
 plot(dataSteps, stepsDate, pch = 19, xlab = "Date", ylab = "Total Steps", main = "Total Number of Steps Taken each Day", type = "h", lwd=7, col = "blue")
 ```
 
@@ -135,14 +127,6 @@ for (i in 1:length(totalFilledSteps)) {
 }
 hist(stepsFilledDate, xlab = "Total Steps", ylab = "Frequency", main = "Histogram - Total Number of Steps - Missing Data Filled", col = "orange")
 
-dataFilledSteps <- unique(dataFileFilled$date)
-totalFilledSteps <- tapply(dataFileFilled$steps,dataFileFilled$date, FUN = sum)
-stepsFilledDate <- c()
-for (i in 1:length(totalFilledSteps)) {
-    
-    stepsFilledDate[i] = totalFilledSteps[[i]]
-    
-}
 plot(dataFilledSteps, stepsFilledDate, pch = 19, xlab = "Date", ylab = "Total Steps", main = "Total Number of Steps Taken each Day - Missing Data Filled", type = "h", lwd=7, col = "blue")
 ```
 
