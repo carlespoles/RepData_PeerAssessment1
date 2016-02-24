@@ -162,10 +162,23 @@ plot(dataIntervalSteps, stepsInterval, pch = 19, xlab = "5-Minute Interval", yla
 
 ```r
 maxStep <- max(stepsInterval)
+maxStep
+```
+
+```
+## [1] 206.1698
+```
+
+```r
 intervalWithMaxSteps <- which(totalIntervalSteps == maxStep)
 theInterval <- totalIntervalSteps[intervalWithMaxSteps]
 indexOfInterval <- intervalWithMaxSteps[[1]]
 singleInterval <- dataIntervalSteps[indexOfInterval]
+singleInterval
+```
+
+```
+## [1] 835
 ```
 
 ## Imputing missing values.

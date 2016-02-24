@@ -161,10 +161,14 @@ plot(dataIntervalSteps, stepsInterval, pch = 19, xlab = &quot;5-Minute Interval&
 <li>Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?</li>
 </ul>
 <pre class="r"><code>maxStep &lt;- max(stepsInterval)
-intervalWithMaxSteps &lt;- which(totalIntervalSteps == maxStep)
+maxStep</code></pre>
+<pre><code>## [1] 206.1698</code></pre>
+<pre class="r"><code>intervalWithMaxSteps &lt;- which(totalIntervalSteps == maxStep)
 theInterval &lt;- totalIntervalSteps[intervalWithMaxSteps]
 indexOfInterval &lt;- intervalWithMaxSteps[[1]]
-singleInterval &lt;- dataIntervalSteps[indexOfInterval]</code></pre>
+singleInterval &lt;- dataIntervalSteps[indexOfInterval]
+singleInterval</code></pre>
+<pre><code>## [1] 835</code></pre>
 </div>
 <div id="imputing-missing-values." class="section level2">
 <h2>Imputing missing values.</h2>

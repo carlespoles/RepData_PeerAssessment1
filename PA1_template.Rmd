@@ -76,10 +76,12 @@ plot(dataIntervalSteps, stepsInterval, pch = 19, xlab = "5-Minute Interval", yla
 * Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```{r}
 maxStep <- max(stepsInterval)
+maxStep
 intervalWithMaxSteps <- which(totalIntervalSteps == maxStep)
 theInterval <- totalIntervalSteps[intervalWithMaxSteps]
 indexOfInterval <- intervalWithMaxSteps[[1]]
 singleInterval <- dataIntervalSteps[indexOfInterval]
+singleInterval
 ```
 
 ## Imputing missing values.
