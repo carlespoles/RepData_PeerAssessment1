@@ -1,12 +1,16 @@
-Reproducible Research: Peer Assessment 1
-==========================================
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
-### Making sure that code is visible.
+## Making sure that code is visible.
 ```{r}
 echo = TRUE
 ```
 
-### Loading and processing the data.
+## Loading and processing the data.
 ```{r}
 fileURL <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 fileZIP <- "dataSetUCI.zip"
@@ -25,11 +29,21 @@ head(dataFileAvoidNA)
 ```
 
 
-### What is mean total number of steps taken per day?
+## What is mean total number of steps taken per day?
 For this part of the assignment, you can ignore the missing values in the dataset.
 
 * Make a histogram of the total number of steps taken each day
 ```{r}
+dataSteps <- unique(dataFileAvoidNA$date)
+totalSteps <- tapply(dataFileAvoidNA$steps,dataFileAvoidNA$date, FUN = sum)
+stepsDate <- c()
+for (i in 1:length(totalSteps)) {
+    
+    stepsDate[i] = totalSteps[[i]]
+  
+}
+hist(stepsDate, xlab = "Total Steps", ylab = "Frequency", main = "Histogram - Total Number of Steps", col = "orange")
+
 dataSteps <- unique(dataFileAvoidNA$date)
 totalSteps <- tapply(dataFileAvoidNA$steps,dataFileAvoidNA$date, FUN = sum)
 stepsDate <- c()
@@ -52,7 +66,7 @@ Median total number of steps taken per day:
 median(stepsDate)
 ```
 
-### What is the average daily activity pattern?
+## What is the average daily activity pattern?
 * Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 ```{r}
@@ -76,7 +90,7 @@ indexOfInterval <- intervalWithMaxSteps[[1]]
 singleInterval <- dataIntervalSteps[indexOfInterval]
 ```
 
-### Imputing missing values
+## Imputing missing values.
 * The total number of rows with NAs:
 
 ```{r}
@@ -119,6 +133,16 @@ for (i in 1:length(totalFilledSteps)) {
     stepsFilledDate[i] = totalFilledSteps[[i]]
     
 }
+hist(stepsFilledDate, xlab = "Total Steps", ylab = "Frequency", main = "Histogram - Total Number of Steps - Missing Data Filled", col = "orange")
+
+dataFilledSteps <- unique(dataFileFilled$date)
+totalFilledSteps <- tapply(dataFileFilled$steps,dataFileFilled$date, FUN = sum)
+stepsFilledDate <- c()
+for (i in 1:length(totalFilledSteps)) {
+    
+    stepsFilledDate[i] = totalFilledSteps[[i]]
+    
+}
 plot(dataFilledSteps, stepsFilledDate, pch = 19, xlab = "Date", ylab = "Total Steps", main = "Total Number of Steps Taken each Day - Missing Data Filled", type = "h", lwd=7, col = "blue")
 ```
 
@@ -139,7 +163,7 @@ abs(median(stepsFilledDate) - median(stepsDate))
 ```
 After imputing the missing data, the new mean of total steps taken per day is the same as that of the old mean; the new median of total steps taken per day is greater than that of the old median.
 
-### Are there differences in activity patterns between weekdays and weekends?
+## Are there differences in activity patterns between weekdays and weekends?
 
 * Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
